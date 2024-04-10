@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Odin.MSBuild", "Odin.MSBuild\Odin.MSBuild.csproj", "{1CC74380-2607-4279-A299-3DDFAD656599}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Odin.MSBuild.Test", "Odin.MSBuild.Test\Odin.MSBuild.Test.csproj", "{CB485F15-68ED-4364-BF83-916BAD7E3FF8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{4964CE55-850E-43BC-A02A-3FB7E64BCA86}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.md = Readme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1CC74380-2607-4279-A299-3DDFAD656599}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CC74380-2607-4279-A299-3DDFAD656599}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CC74380-2607-4279-A299-3DDFAD656599}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CC74380-2607-4279-A299-3DDFAD656599}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB485F15-68ED-4364-BF83-916BAD7E3FF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB485F15-68ED-4364-BF83-916BAD7E3FF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB485F15-68ED-4364-BF83-916BAD7E3FF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB485F15-68ED-4364-BF83-916BAD7E3FF8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
