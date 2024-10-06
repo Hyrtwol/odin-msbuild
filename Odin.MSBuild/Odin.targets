@@ -6,6 +6,7 @@
 		<OdinOutputDir Condition="'$(OdinOutputDir)'==''">$(MSBuildProjectDirectory)\bin</OdinOutputDir>
 		<DocDir Condition="'$(DocDir)'==''">$(MSBuildProjectDirectory)\doc</DocDir>
 		<OdinExe Condition="'$(OdinExe)'==''">$(ODIN_ROOT)\odin.exe</OdinExe>
+		<OdinResource Condition="Exists('$(DocDir)\odin.rc')">-resource:$(DocDir)\odin.rc</OdinResource>
 	</PropertyGroup>
 
 	<Target Name="Prologue">
@@ -20,12 +21,12 @@
 
 	<Target Name="Build" DependsOnTargets="Clean">
 		<Message Text="Build" Importance="High" />
-		<MSBuild Projects="$(MSBuildProjectFile)" Targets="_OdinBuild" Condition=" '%(Project.Flavour)'=='Odin' " Properties="OdinProject=%(Project.FullPath);OdinProjectName=%(Project.Filename)" />
+		<MSBuild Projects="$(MSBuildProjectFile)" Targets="_OdinBuild" Condition=" '%(Project.Flavour)'=='Odin' " Properties="OdinProject=%(Project.FullPath);OdinProjectName=%(Project.Filename);OdinDefines=%(Project.Defines)" />
 	</Target>
 
 	<Target Name="Test" DependsOnTargets="Build">
 		<Message Text="Test" Importance="High" />
-		<MSBuild Projects="$(MSBuildProjectFile)" Targets="_OdinTest" Condition=" '%(Project.Flavour)'=='OdinTest' " Properties="OdinProject=%(Project.FullPath);OdinProjectName=%(Project.Filename)" />
+		<MSBuild Projects="$(MSBuildProjectFile)" Targets="_OdinTest" Condition=" '%(Project.Flavour)'=='OdinTest' " Properties="OdinProject=%(Project.FullPath);OdinProjectName=%(Project.Filename);OdinDefines=%(Project.Defines)" />
 	</Target>
 
 	<Target Name="All" DependsOnTargets="Test">
@@ -39,13 +40,11 @@
 		<PropertyGroup>
 			<OdinCollections>@(_Collection)</OdinCollections>
 			<OdinCollections>$(OdinCollections.Replace(';',' '))</OdinCollections>
-			<OdinResource>-resource:$(DocDir)\odin.rc</OdinResource>
 			<OdinCmd>$(OdinExe) build $(OdinProject) -out:$(OdinOutputDir)\$(OdinProjectName).exe $(OdinCollections) $(OdinResource)</OdinCmd>
 		</PropertyGroup>
 		<!--<Message Text="$(OdinCmd)" Importance="High" />-->
 		<Exec Command="$(OdinCmd)" EchoOff="false" WorkingDirectory="$(ODIN_ROOT)" />
 	</Target>
-
 
 	<Target Name="_OdinTest">
 		<Error Condition="'$(OdinProject)'==''" Text="OdinProject is missing" />
@@ -55,11 +54,10 @@
 		<PropertyGroup>
 			<OdinCollections>@(_Collection)</OdinCollections>
 			<OdinCollections>$(OdinCollections.Replace(';',' '))</OdinCollections>
-			<OdinResource>-resource:$(DocDir)\odin.rc</OdinResource>
-			<OdinCmd>$(OdinExe) test $(OdinProject) -out:$(OdinOutputDir)\$(OdinProjectName).exe $(OdinCollections) $(OdinResource)</OdinCmd>
+			<OdinCmd>$(OdinExe) test $(OdinProject) $(OdinCollections) $(OdinDefines) $(OdinResource)</OdinCmd>
 		</PropertyGroup>
 		<!--<Message Text="$(OdinCmd)" Importance="High" />-->
-		<Exec Command="$(OdinCmd)" EchoOff="false" WorkingDirectory="$(ODIN_ROOT)" />
+		<Exec Command="$(OdinCmd)" EchoOff="false" WorkingDirectory="$(OdinProject)" UseUtf8Encoding="true" />
 	</Target>
 
 </Project>
