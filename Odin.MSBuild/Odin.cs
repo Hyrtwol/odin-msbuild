@@ -1,5 +1,6 @@
 using Microsoft.Build.Framework;
 using Microsoft.Build.Utilities;
+using Microsoft.Build.Shared;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -15,7 +16,8 @@ namespace Odin.MSBuild
             {
                 ToolPath = odinRoot;
             }
-        }
+			UseUtf8Encoding = "ALWAYS";
+		}
 
         [Required]
         public string Command { get; set; }
