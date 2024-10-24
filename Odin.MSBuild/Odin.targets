@@ -42,7 +42,6 @@
 			<OdinCollections>$(OdinCollections.Replace(';',' '))</OdinCollections>
 			<OdinCmd>$(OdinExe) build $(OdinProject) -out:$(OdinOutputDir)\$(OdinProjectName).exe $(OdinCollections) $(OdinResource)</OdinCmd>
 		</PropertyGroup>
-		<!--<Message Text="$(OdinCmd)" Importance="High" />-->
 		<Exec Command="$(OdinCmd)" EchoOff="false" WorkingDirectory="$(ODIN_ROOT)" />
 	</Target>
 
@@ -56,7 +55,6 @@
 			<OdinCollections>$(OdinCollections.Replace(';',' '))</OdinCollections>
 			<OdinCmd>$(OdinExe) test $(OdinProject) $(OdinCollections) $(OdinDefines) $(OdinResource)</OdinCmd>
 		</PropertyGroup>
-		<!--<Message Text="$(OdinCmd)" Importance="High" />-->
 		<Exec Command="$(OdinCmd)" EchoOff="false" WorkingDirectory="$(OdinProject)" UseUtf8Encoding="true" />
 	</Target>
 

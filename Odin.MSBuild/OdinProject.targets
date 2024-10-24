@@ -6,7 +6,7 @@
 		<!-- <ShowTimings>true</ShowTimings> -->
 		<BuildMode>exe</BuildMode>
 		<!-- -define:<name>=<value> -->
-		<DefineConstants>SPAM=123;SOME=1</DefineConstants>
+		<DefineConstants></DefineConstants>
 		<!-- -target:<string> -->
 		<OutputPath>..\..\bin</OutputPath>
 		<DefineDebug>true</DefineDebug>

@@ -45,16 +45,13 @@ namespace Odin.MSBuild
 
         protected override string GenerateCommandLineCommands()
         {
-            //return base.GenerateCommandLineCommands();
             var builder = new CommandLineBuilder();
 
             builder.AppendSwitch(Command);
-            //builder.AppendSwitch(InputFile);
             builder.AppendFileNameIfNotNull(InputFile);
             builder.AppendSwitchIfNotNull("-out:", ExeOutputPath);
 
             var commandLineCommands = builder.ToString();
-            //LogMessage("Arguments", commandLineCommands);
             return commandLineCommands;
         }
 
