@@ -9,7 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Odin.MSBuild.Test", "Odin.M
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{4964CE55-850E-43BC-A02A-3FB7E64BCA86}"
 	ProjectSection(SolutionItems) = preProject
-		Readme.md = Readme.md
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		build.bat = build.bat
+		README.md = README.md
 	EndProjectSection
 EndProject
 Global
